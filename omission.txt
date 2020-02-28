@@ -1,0 +1,45 @@
+、日志格式。没有配置，所以还是用默认的
+、原项目web.xml中有些设置，不一一对应补上，好像也没有问题。没有补上的如下：
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>dev</param-value>
+	</context-param>
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>dev</param-value>
+	</context-param>
+	<context-param>
+		<param-name>spring.liveBeansView.mbeanDomain</param-name>
+		<param-value>dev</param-value>
+	</context-param>
+	----------------------------
+	<listener>
+		<description>spring监听器</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 防止spring内存溢出监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	----------------------------
+	关于springMvc的<load-on-startup>1</load-on-startup>，没有加上
+	----------------------------
+	<error-page>
+		<error-code>404</error-code>
+		<location>/open/404.shtml</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/open/404.shtml</location>
+	</error-page>
+、登出后再访问“/”路径，经过kickout、simple、login三个filter，接着的登录和登出，还是要经过这三个filter。但原项目进行同样的操作，只需经过后面两个filter，无需经过kickout
+	、或许是哪里配置错误了？
+	、或许在kickout的打点问题？
+、以下在原项目spring-mybatis.xml中，不配好像没影响
+	<bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
+    	<property name="resultSetLogEnabled" value="true" />
+	</bean>
+、以下在原项目spring-timer.xml中，不配好像没影响
+	<task:executor id="executor" pool-size="5" />  
+    <task:scheduler id="scheduler" pool-size="10" />  
+    <task:annotation-driven executor="executor" scheduler="scheduler" />

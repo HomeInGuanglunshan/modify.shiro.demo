@@ -1,0 +1,7 @@
+、定时器没有注释掉，居然没有跑起来
+	、或许没有扫描到，或者说，没有设置好扫描路径
+、maven clean install之后，控制台报找不到mybatis的xml
+	、这个需要在pom.xml中设置一下
+	、可以参考：https://blog.csdn.net/jinhaijing/article/details/82747846
+、没有事务控制
+	、准确点来说，这是个缺漏，a omission

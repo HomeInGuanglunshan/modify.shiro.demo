@@ -1,0 +1,7 @@
+http://localhost:8080/shiro.demo
+http://localhost:8080/shiro.demo/u/login.shtml
+http://localhost:8080/shiro.demo/css/common/base.css
+http://localhost:8080/shiro.demo/js/common/html5shiv.js
+http://localhost:8080/shiro.demo/user/index.shtml
+http://localhost:8080/shiro.demo/open/kickOut.shtml
+http://localhost:8080/shiro.demo/role/mypermission.shtml
